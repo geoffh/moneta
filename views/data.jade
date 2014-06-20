@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to Data
+
+  div(ng-controller='DataController')
+    div
+      select(ng-model='selectedDataType'
+      ng-options='dataType.type as dataType.displayName for dataType in dataTypes'
+      ng-init='selectDataType()'
+      ng-change='selectDataType()')
+
+    div(class='gridStyle' ng-grid='gridOptions')
