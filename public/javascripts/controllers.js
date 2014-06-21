@@ -17,7 +17,7 @@ hotelControllers.controller( 'DataController', ['$scope', '$http', 'Alert',
 		data: 'dataItems',
 		columnDefs: 'theColumnDefs'
 	    };
-	    $http.get( '/api/datXa/' + $scope.selectedDataType )
+	    $http.get( '/api/data/' + $scope.selectedDataType )
                 .success(
 		    function( inData, inStatus, inHeaders, inConfig ) {
 		        if ( inData.error ) {
