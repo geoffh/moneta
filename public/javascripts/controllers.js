@@ -1,8 +1,8 @@
 'use strict';
 var hotelControllers = angular.module( 'hotelControllers', [] );
 
-hotelControllers.controller( 'DataController', ['$scope', '$http',
-    function( $scope, $http ) {
+hotelControllers.controller( 'DataController', ['$scope', '$http', 'Alert',
+    function( $scope, $http, Alert ) {
 	$scope.dataTypes = [
 	   { 'displayName': 'Hotels',	    'type': 'hotel' },
 	   { 'displayName': 'Rooms',	    'type': 'room' },
@@ -17,17 +17,22 @@ hotelControllers.controller( 'DataController', ['$scope', '$http',
 		data: 'dataItems',
 		columnDefs: 'theColumnDefs'
 	    };
-	    $http.get( '/api/data/' + $scope.selectedDataType ).success(
-		function( inData, inStatus, inHeaders, inConfig ) {
-		    if ( inData.error ) {
-			//TODO:
-			return;
-		    }
-		    $scope.dataItems = inData.data;
-		    for ( var theName in $scope.dataItems[ 0 ] ) {
-			$scope.theColumnDefs.push(
-			    { field: theName, displayName: theName } );
-		    }
-		} );
+	    $http.get( '/api/datXa/' + $scope.selectedDataType )
+                .success(
+		    function( inData, inStatus, inHeaders, inConfig ) {
+		        if ( inData.error ) {
+			    //TODO:
+			    return;
+		        }
+		        $scope.dataItems = inData.data;
+		        for ( var theName in $scope.dataItems[ 0 ] ) {
+			    $scope.theColumnDefs.push(
+			        { field: theName, displayName: theName } );
+		        }
+		    } )
+                .error(
+                    function( inData, inStatus, inHeaders, inConfig ) {
+                        Alert.addDanger( "yeho", 5000 );
+                    } );
 	};
   } ] );

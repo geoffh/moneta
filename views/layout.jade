@@ -4,12 +4,17 @@ html(ng-app='hotelApp')
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='bower_components/angular-grid/ng-grid.css')
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
     script(src='bower_components/jquery/jquery.js')
     script(src='bower_components/angular/angular.js')
     script(src='bower_components/angular-route/angular-route.js')
     script(src='bower_components/angular-resource/angular-resource.js')
     script(src='bower_components/angular-grid/build/ng-grid.js')
+    script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
     script(src='javascripts/app.js')
     script(src='javascripts/controllers.js')
+    script(src='javascripts/services.js')
   body
+    alert(ng-repeat='alert in alerts' type='{{alert.type}}' close='alert.close()' ) {{alert.msg}}
     block content
