@@ -1,4 +1,9 @@
 'use strict';
-var hotelApp = angular.module(
-    'hotelApp',
-    [ 'hotelControllers', 'hotelServices', 'ngGrid', 'ui.bootstrap' ] );
+
+angular.module( 'hotelControllers', [] );
+angular.module( 'hotelServices', [] );
+angular.module( 'hotelApp',
+    [ 'hotelControllers',
+      'hotelServices',
+      'ngGrid',
+      'ui.bootstrap' ] );

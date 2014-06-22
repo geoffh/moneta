@@ -13,8 +13,9 @@ html(ng-app='hotelApp')
     script(src='bower_components/angular-grid/build/ng-grid.js')
     script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
     script(src='javascripts/app.js')
-    script(src='javascripts/controllers.js')
-    script(src='javascripts/services.js')
+    script(src='javascripts/controllers/datacontroller.js')
+    script(src='javascripts/services/alertservice.js')
+    script(src='javascripts/services/dataservice.js')
   body
     alert(ng-repeat='alert in alerts' type='{{alert.type}}' close='alert.close()' ) {{alert.msg}}
     block content

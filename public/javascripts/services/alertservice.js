@@ -1,9 +1,8 @@
 'use strict'
 
-var hotelServices = angular.module( 'hotelServices', [] );
-
-hotelServices.factory( 'Alert', [ '$rootScope', '$timeout',
-    function( $rootScope, $timeout ) {
+angular.module( 'hotelServices' )
+.service( 'AlertService', [ '$rootScope', '$timeout',
+function( $rootScope, $timeout ) {
         var theAlertService;
         $rootScope.alerts = [];
         return theAlertService = {

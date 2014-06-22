@@ -7,7 +7,7 @@ block content
   div(ng-controller='DataController')
     div
       select(ng-model='selectedDataType'
-      ng-options='dataType.type as dataType.displayName for dataType in dataTypes'
+      ng-options='dataType as dataType for dataType in dataTypes'
       ng-init='selectDataType()'
       ng-change='selectDataType()')
 
