@@ -14,13 +14,17 @@ function( $scope, $http, DataService, AlertService ) {
 	    columnDefs: 'theColumnDefs'
 	};
         DataService.getData( $scope.selectedDataType,
-            function( inStatus, inData ) {
-                if ( inData ) {
-                    $scope.dataItems = inData;
+            function( inResult ) {
+                if ( inResult.data ) {
+                    $scope.dataItems = inResult.data
                     for ( var theName in $scope.dataItems[ 0 ] ) {
                         $scope.theColumnDefs.push(
 		            { field: theName, displayName: theName } );
                     }
+                } else {
+                    AlertService.addDanger(
+                        "Error: [" + inResult.status + "]: " + inResult.error,
+                        5 );
                 }
             } );
     };

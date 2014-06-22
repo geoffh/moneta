@@ -13,14 +13,19 @@ function( $http ) {
         $http.get( theAPIRoot + inType )
         .success(
             function( inData, inStatus, inHeaders, inConfig ) {
-                if ( inData.error ) {
-                    // TODO
-                }
-                inCallback( inStatus, inData.data );
+                inCallback( {
+                    status: inStatus,
+                    error: inData.error,
+                    data: inData.data
+                } );
             } )
         .error(
             function( inData, inStatus, inHeaders, inConfig ) {
-                inCallback( inStatus );
+                inCallback( {
+                    status: inStatus,
+                    error: inData.error ? inData.error : null,
+                    data: null
+                } );
             } );
     };
 

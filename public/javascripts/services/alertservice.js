@@ -17,7 +17,7 @@ function( $rootScope, $timeout ) {
                 if ( inTimeout ) { 
                     $timeout( function() {
                         theAlertService.closeAlert( this ); 
-                    },  inTimeout ); 
+                    },  inTimeout * 1000 ); 
                 }
                 return theResult;
             },
