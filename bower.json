@@ -12,6 +12,7 @@
     "jquery": "1.10.2",
     "angular-animate": "~1.2.x",
     "angular-grid": "*",
-    "angular-bootstrap": "*"
+    "angular-bootstrap": "*",
+    "angular-resource": "*"
   }
 }
